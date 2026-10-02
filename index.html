@@ -18,14 +18,14 @@ h1{font-size:32px;margin:12px 0;color:#772640}h2{font-size:24px;color:#772640}p{
 button{width:100%;border:0;border-radius:18px;padding:15px 18px;font-size:17px;font-weight:700;cursor:pointer;touch-action:manipulation}
 .primary{background:linear-gradient(135deg,#ef678b,#d9416b);color:#fff;box-shadow:0 10px 24px rgba(217,65,107,.27)}
 .primary:active,.choice:active{transform:scale(.97)}
-.no-zone{height:95px;position:relative;margin-top:10px}.no{width:auto;position:absolute;left:50%;top:18px;transform:translateX(-50%);background:#f1edf0;color:#735764;border:1px solid #e5dce1;padding:12px 18px}
+.no-zone{height:95px;position:relative;margin-top:10px;z-index:20}.no{width:auto;position:absolute;left:50%;top:18px;transform:translateX(-50%);background:#f1edf0;color:#735764;border:1px solid #e5dce1;padding:12px 18px;transition:left .18s ease,top .18s ease,transform .18s ease;z-index:30}.no.wiggle{animation:noWiggle .32s ease}@keyframes noWiggle{25%{transform:translateX(-50%) rotate(-7deg)}50%{transform:translateX(-50%) rotate(7deg)}75%{transform:translateX(-50%) rotate(-4deg)}}.sorry-rain{position:fixed;inset:0;pointer-events:none;z-index:25;overflow:hidden}
 .choices{display:grid;gap:12px;margin-top:22px}.choice{background:#fff3f6;color:#8d3150;border:1px solid #f2b8c7;box-shadow:0 7px 18px rgba(117,42,66,.07)}
 .badge{display:inline-block;padding:7px 12px;border-radius:999px;background:#ffe5ec;color:#a33859;font-size:13px;font-weight:800;letter-spacing:.03em}
 .result{padding:16px;border-radius:18px;background:#fff2f6;margin:18px 0;color:#8d3150}
 .actions{display:grid;gap:10px}.secondary{background:#f2edf0;color:#684b56}
 .tiny{font-size:12px;opacity:.62;margin-top:15px}
 .float{position:fixed;bottom:-40px;pointer-events:none;animation:floatUp 5s linear forwards;z-index:5}@keyframes floatUp{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
-.spark{position:fixed;pointer-events:none;z-index:10;font-size:22px;animation:burst 1.25s ease-out forwards}@keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(180deg) scale(.3);opacity:0}}
+.sorry-pop{position:absolute;max-width:82vw;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.96);color:#b33459;font-size:14px;font-weight:800;box-shadow:0 8px 25px rgba(126,41,68,.15);animation:sorryFloat 1.8s ease-out forwards;transform:translate(-50%,-50%);white-space:nowrap}.sorry-pop:nth-child(3n){font-size:16px}.sorry-pop:nth-child(4n){background:#fff0f5}@keyframes sorryFloat{0%{opacity:0;transform:translate(-50%,-20%) scale(.7) rotate(0)}15%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(var(--rot))}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.82) rotate(var(--rot))}}.spark{position:fixed;pointer-events:none;z-index:10;font-size:22px;animation:burst 1.25s ease-out forwards}@keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(180deg) scale(.3);opacity:0}}
 </style>
 </head>
 <body>
@@ -36,7 +36,8 @@ button{width:100%;border:0;border-radius:18px;padding:15px 18px;font-size:17px;f
 <p>I know I messed up, and I don't like knowing that I hurt or upset you. So instead of another boring apology text, I made this little page just for you. 🥺</p>
 <button class="primary" onclick="go(2);celebrate()">Okay, I accept your sorry ❤️</button>
 <div class="no-zone"><button class="no" id="noBtn">Not accepted 😤</button></div>
-<div class="tiny">P.S. the grumpy button is feeling a little shy today 😌</div>
+<div class="sorry-rain" id="sorryRain" aria-hidden="true"></div>
+<div class="tiny">P.S. Try pressing the grumpy button... I have a lot more to say 😌</div>
 </section>
 <section class="screen" id="s2">
 <div class="icon">🥰</div><span class="badge">Apology accepted</span>
@@ -74,8 +75,38 @@ function go(n){screens.forEach(s=>s.classList.remove('active'));document.getElem
 function choose(name,emoji){localStorage.setItem('sorryChoice',name);document.getElementById('chosenEmoji').textContent=emoji;document.getElementById('chosenText').innerHTML=`You picked <strong>${emoji} ${name}</strong> — officially added to our peace treaty.`;go(3);celebrate()}
 function restart(){localStorage.removeItem('sorryChoice');go(1)}
 const no=document.getElementById('noBtn');
-function moveNo(e){if(e)e.preventDefault();const pad=12,w=no.offsetWidth,h=no.offsetHeight;no.style.position='fixed';no.style.transform='none';no.style.left=(pad+Math.random()*Math.max(1,innerWidth-w-pad*2))+'px';no.style.top=(pad+Math.random()*Math.max(1,innerHeight-h-pad*2))+'px'}
-['pointerenter','pointerdown','touchstart'].forEach(ev=>no.addEventListener(ev,moveNo,{passive:false}));
+const apologyMessages=['I’m sorry 🥺','Please forgive me ❤️','I really mean it 💕','One more chance? 🥹','I’ll make it up to you 🌸','Okay okay… I’m sorry 😭','My bad, my love ❤️','Can we make peace? 🫶','I promise I’ll do better 💗','Sending you a giant sorry 🥺','No more being silly, promise! 💞','You’re too precious to stay mad at me ❤️','I owe you a proper apology 🌷','I’m genuinely sorry 💕','Truce? 🕊️','Pretty please? 🥹❤️','I was wrong. I’m sorry.','Come on… tiny smile? 😊'];
+let noAttempts=0;
+function showApologies(){
+  noAttempts++;
+  const count=Math.min(24,10+noAttempts*2);
+  for(let i=0;i<count;i++){
+    const m=document.createElement('div');
+    m.className='sorry-pop';
+    m.textContent=apologyMessages[Math.floor(Math.random()*apologyMessages.length)];
+    m.style.left=(5+Math.random()*90)+'vw';
+    m.style.top=(12+Math.random()*72)+'vh';
+    m.style.setProperty('--dx',((Math.random()-.5)*90)+'px');
+    m.style.setProperty('--dy',(-35-Math.random()*90)+'px');
+    m.style.setProperty('--rot',((Math.random()-.5)*18)+'deg');
+    document.getElementById('sorryRain').appendChild(m);
+    setTimeout(()=>m.remove(),1900);
+  }
+  no.classList.remove('wiggle');
+  void no.offsetWidth;
+  no.classList.add('wiggle');
+  celebrate();
+}
+function moveNo(e){
+  if(e)e.preventDefault();
+  showApologies();
+  const pad=18,w=no.offsetWidth,h=no.offsetHeight;
+  no.style.position='fixed';
+  no.style.transform='none';
+  no.style.left=(pad+Math.random()*Math.max(1,innerWidth-w-pad*2))+'px';
+  no.style.top=(Math.min(innerHeight-h-pad,Math.max(pad,innerHeight*.45+((Math.random()-.5)*180))))+'px';
+}
+['pointerenter','pointerdown','touchstart','click'].forEach(ev=>no.addEventListener(ev,moveNo,{passive:false}));
 function celebrate(){for(let i=0;i<26;i++){const s=document.createElement('span');s.className='spark';s.textContent=['❤️','✨','💗','🌸'][i%4];s.style.left='50vw';s.style.top='48vh';s.style.setProperty('--x',((Math.random()-.5)*380)+'px');s.style.setProperty('--y',((Math.random()-.7)*420)+'px');document.body.appendChild(s);setTimeout(()=>s.remove(),1400)}}
 setInterval(()=>{const h=document.createElement('span');h.className='float';h.textContent=Math.random()>.5?'♡':'✦';h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*18)+'px';h.style.opacity=.35+Math.random()*.35;document.body.appendChild(h);setTimeout(()=>h.remove(),5200)},900);
 </script>
