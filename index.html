@@ -1,114 +1,130 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f8a8bb">
-<title>A Little Sorry ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Performance-driven digital marketing partner helping ambitious businesses acquire customers, build powerful brands, and scale profitably.">
+<meta name="keywords" content="digital marketing agency, performance marketing, SEO, paid advertising, customer acquisition, growth marketing, marketing analytics, conversion rate optimization">
+<meta name="theme-color" content="#0a0a0b">
+<title>Growth Engine — Performance Digital Marketing</title>
 <style>
-:root{--pink:#e9547b;--deep:#7f2944;--paper:rgba(255,255,255,.91)}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-body{min-height:100svh;display:grid;place-items:center;overflow:hidden;color:#542337;background:radial-gradient(circle at 20% 20%,#fff7fa 0 8%,transparent 28%),linear-gradient(145deg,#ffdce5,#f4a7ba 52%,#e98da6)}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent,rgba(255,255,255,.25),transparent);animation:shine 7s linear infinite}
-@keyframes shine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
-.card{width:min(92vw,440px);min-height:560px;padding:34px 24px 26px;border:1px solid rgba(255,255,255,.65);border-radius:32px;background:var(--paper);backdrop-filter:blur(18px);box-shadow:0 24px 70px rgba(89,27,48,.22);text-align:center;position:relative;overflow:hidden}
-.screen{display:none;animation:in .45s ease}.screen.active{display:block}@keyframes in{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
-.icon{font-size:72px;filter:drop-shadow(0 8px 14px rgba(233,84,123,.22));animation:pulse 1.5s ease-in-out infinite}@keyframes pulse{50%{transform:scale(1.1)}}
-h1{font-size:32px;margin:12px 0;color:#772640}h2{font-size:24px;color:#772640}p{font-size:17px;line-height:1.6;margin:12px 0 20px}
-button{width:100%;border:0;border-radius:18px;padding:15px 18px;font-size:17px;font-weight:700;cursor:pointer;touch-action:manipulation}
-.primary{background:linear-gradient(135deg,#ef678b,#d9416b);color:#fff;box-shadow:0 10px 24px rgba(217,65,107,.27)}
-.primary:active,.choice:active{transform:scale(.97)}
-.no-zone{height:95px;position:relative;margin-top:10px;z-index:20}.no{width:auto;position:absolute;left:50%;top:18px;transform:translateX(-50%);background:#f1edf0;color:#735764;border:1px solid #e5dce1;padding:12px 18px;transition:left .18s ease,top .18s ease,transform .18s ease;z-index:30}.no.wiggle{animation:noWiggle .32s ease}@keyframes noWiggle{25%{transform:translateX(-50%) rotate(-7deg)}50%{transform:translateX(-50%) rotate(7deg)}75%{transform:translateX(-50%) rotate(-4deg)}}.sorry-rain{position:fixed;inset:0;pointer-events:none;z-index:25;overflow:hidden}
-.choices{display:grid;gap:12px;margin-top:22px}.choice{background:#fff3f6;color:#8d3150;border:1px solid #f2b8c7;box-shadow:0 7px 18px rgba(117,42,66,.07)}
-.badge{display:inline-block;padding:7px 12px;border-radius:999px;background:#ffe5ec;color:#a33859;font-size:13px;font-weight:800;letter-spacing:.03em}
-.result{padding:16px;border-radius:18px;background:#fff2f6;margin:18px 0;color:#8d3150}
-.actions{display:grid;gap:10px}.secondary{background:#f2edf0;color:#684b56}
-.tiny{font-size:12px;opacity:.62;margin-top:15px}
-.float{position:fixed;bottom:-40px;pointer-events:none;animation:floatUp 5s linear forwards;z-index:5}@keyframes floatUp{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
-.sorry-pop{position:absolute;max-width:82vw;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.96);color:#b33459;font-size:14px;font-weight:800;box-shadow:0 8px 25px rgba(126,41,68,.15);animation:sorryFloat 1.8s ease-out forwards;transform:translate(-50%,-50%);white-space:nowrap}.sorry-pop:nth-child(3n){font-size:16px}.sorry-pop:nth-child(4n){background:#fff0f5}@keyframes sorryFloat{0%{opacity:0;transform:translate(-50%,-20%) scale(.7) rotate(0)}15%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(var(--rot))}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.82) rotate(var(--rot))}}.spark{position:fixed;pointer-events:none;z-index:10;font-size:22px;animation:burst 1.25s ease-out forwards}@keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(180deg) scale(.3);opacity:0}}
+:root{--bg:#08090b;--panel:#111318;--panel2:#151820;--text:#f6f7f9;--muted:#a5abb8;--line:#272b34;--accent:#8bff6a;--accent2:#5be7ff;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#14251a 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}.wrap{max-width:var(--max);margin:auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:20;background:rgba(8,9,11,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;letter-spacing:-.04em;font-size:21px}.logo span{color:var(--accent)}
+.links{display:flex;gap:25px;align-items:center;font-size:14px;color:#c7cad1}.links a:hover{color:white}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 18px;font-weight:800;border:1px solid transparent;transition:.25s}.nav-cta,.btn.primary{background:var(--accent);color:#071007}.btn.primary:hover,.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(139,255,106,.18)}.btn.secondary{border-color:#343944;background:#111318}.btn.secondary:hover{border-color:#616978;transform:translateY(-2px)}
+.menu{display:none;background:none;border:0;color:white;font-size:26px}
+.hero{padding:105px 0 80px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:rgba(139,255,106,.08);filter:blur(70px);right:-160px;top:-180px}.eyebrow{display:inline-flex;gap:9px;align-items:center;color:#cfd5df;border:1px solid #303640;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 15px var(--accent)}
+h1{font-size:clamp(50px,8vw,92px);line-height:.96;letter-spacing:-.065em;max-width:900px;margin:26px 0}.hero p{max-width:690px;color:var(--muted);font-size:19px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 25px}.trust{color:#838996;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.metrics{margin:20px 0 90px}.metric{padding:26px;border:1px solid var(--line);background:linear-gradient(180deg,#11141a,#0d0f13);border-radius:18px}.metric strong{display:block;font-size:38px;letter-spacing:-.04em}.metric span{color:var(--muted);font-size:13px}
+section{padding:95px 0}.section-head{max-width:760px;margin-bottom:42px}.kicker{color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}.section-head h2{font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-.05em;margin:12px 0 16px}.section-head p{color:var(--muted);font-size:17px}
+.problem{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}.problem ul{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0;margin:0;list-style:none}.problem li{padding:17px;border:1px solid var(--line);border-radius:14px;color:#d4d7de;background:#0d0f13}.solution{margin-top:28px;font-weight:750;font-size:18px}
+.card{border:1px solid var(--line);background:linear-gradient(180deg,#12151b,#0d0f13);border-radius:20px;padding:27px;transition:.3s}.card:hover{transform:translateY(-5px);border-color:#4b5361}.icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#1c2229;color:var(--accent);font-weight:900;margin-bottom:22px}.card h3{margin:0 0 8px;font-size:21px}.card p{color:var(--muted);font-size:14px}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}.tag{font-size:11px;color:#c9ced7;border:1px solid #2d333d;padding:5px 8px;border-radius:999px}
+.services{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(3,1fr)}
+.framework{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.step{padding:25px 18px;border:1px solid var(--line);border-radius:18px;background:#0e1014;position:relative}.step b{font-size:12px;color:var(--accent)}.step h3{margin:8px 0}.step p{font-size:13px;color:var(--muted)}
+.case{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}.case-main{border:1px solid var(--line);border-radius:22px;padding:34px;background:linear-gradient(135deg,#13171e,#0d0f12)}.case-main h3{font-size:30px;margin:5px 0 15px}.case-main p{color:var(--muted)}.case-side{display:grid;gap:14px}.case-stat{border:1px solid var(--line);border-radius:18px;padding:24px}.case-stat strong{font-size:32px}.note{font-size:11px;color:#7f8692;margin-top:15px}
+.industries{display:flex;flex-wrap:wrap;gap:10px}.industry{padding:12px 16px;border:1px solid var(--line);border-radius:999px;color:#cbd0d9;background:#0d0f13}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:70px}.about p{color:var(--muted);font-size:17px}
+.tools{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.tool{padding:16px;border:1px solid var(--line);border-radius:14px;text-align:center;color:#c9ced7;font-size:13px;background:#0d0f13}
+.quote{padding:32px;border:1px solid var(--line);border-radius:20px;background:#0e1014}.quote p{font-size:21px;line-height:1.35}.quote small{color:var(--muted)}
+.cta{padding:70px 35px;border-radius:28px;border:1px solid #39413c;background:radial-gradient(circle at 80% 20%,rgba(139,255,106,.13),transparent 30%),#10140f;text-align:center}.cta h2{font-size:clamp(38px,5vw,65px);line-height:1;letter-spacing:-.05em;margin:0 auto 15px;max-width:800px}.cta p{color:var(--muted);max-width:680px;margin:0 auto 25px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:850px;margin:auto}.full{grid-column:1/-1}input,select,textarea{width:100%;padding:14px 15px;border-radius:12px;border:1px solid #2d333d;background:#0d0f13;color:white;outline:none;font:inherit}input:focus,select:focus,textarea:focus{border-color:#667080}textarea{min-height:130px;resize:vertical}
+footer{border-top:1px solid var(--line);padding:50px 0;color:#9198a5}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}.footer-grid h4{color:white;margin:0 0 12px}.footer-grid a{display:block;margin:8px 0;font-size:13px}.footer-grid a:hover{color:white}.copyright{border-top:1px solid var(--line);margin-top:35px;padding-top:22px;font-size:12px;display:flex;justify-content:space-between;gap:15px}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:900px){.links{display:none}.menu{display:block}.services,.features{grid-template-columns:1fr 1fr}.framework{grid-template-columns:1fr 1fr}.problem,.about,.case{grid-template-columns:1fr}.tools{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.wrap{padding:0 17px}.hero{padding-top:70px}h1{font-size:53px}.hero p{font-size:16px}.grid,.services,.features,.framework,.tools{grid-template-columns:1fr}.problem ul{grid-template-columns:1fr}section{padding:70px 0}.metric strong{font-size:31px}.footer-grid{grid-template-columns:1fr 1fr}form{grid-template-columns:1fr}.full{grid-column:auto}.copyright{display:block}.copyright span{display:block;margin-top:8px}}
 </style>
 </head>
 <body>
-<main class="card">
-<section class="screen active" id="s1">
-<div class="icon">❤️</div><span class="badge">A tiny peace offering</span>
-<h1>I'm really sorry.</h1>
-<p>I know I messed up, and I don't like knowing that I hurt or upset you. So instead of another boring apology text, I made this little page just for you. 🥺</p>
-<button class="primary" onclick="go(2);celebrate()">Okay, I accept your sorry ❤️</button>
-<div class="no-zone"><button class="no" id="noBtn">Not accepted 😤</button></div>
-<div class="sorry-rain" id="sorryRain" aria-hidden="true"></div>
-<div class="tiny">P.S. Try pressing the grumpy button... I have a lot more to say 😌</div>
-</section>
-<section class="screen" id="s2">
-<div class="icon">🥰</div><span class="badge">Apology accepted</span>
-<h1>You made my day ❤️</h1>
-<p>Now comes the important part. Pick your favorite peace-offering plan:</p>
-<div class="choices">
-<button class="choice" onclick="choose('Spa','💆‍♀️')">💆‍♀️ &nbsp; Spa Day</button>
-<button class="choice" onclick="choose('Dinner','🍝')">🍝 &nbsp; Dinner Date</button>
-<button class="choice" onclick="choose('Movie','🎬')">🎬 &nbsp; Movie Time</button>
-</div>
-</section>
-<section class="screen" id="s3">
-<div class="icon" id="chosenEmoji">💗</div><span class="badge">It's a deal</span>
-<h1>Excellent choice!</h1>
-<div class="result" id="chosenText"></div>
-<p>And I have one tiny optional bonus request...</p>
-<h2>May I get a kiss on the cheek? 😘</h2>
-<p>Only if you want to. ❤️</p>
-<div class="actions">
-<button class="primary" onclick="go(4);celebrate()">Okay 😘</button>
-<button class="secondary" onclick="go(4)">I'll take the date only 😌</button>
-</div>
-</section>
-<section class="screen" id="s4">
-<div class="icon">💞</div><span class="badge">Peace restored</span>
-<h1>Thank you ❤️</h1>
-<p>Your choice is saved on this phone. Now the only thing left is to actually enjoy the plan together.</p>
-<button class="primary" onclick="restart()">Replay from the beginning ↻</button>
-<div class="tiny">Made with a lot of sorry and a little bit of code.</div>
-</section>
+<nav><div class="wrap nav"><a class="logo" href="#">GROWTH<span>ENGINE</span></a><div class="links"><a href="#services">Services</a><a href="#solutions">Solutions</a><a href="#industries">Industries</a><a href="#cases">Case Studies</a><a href="#about">About</a><a href="#contact">Contact</a><a class="nav-cta" href="#contact">Start Growing</a></div><button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button></div></nav>
+
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow"><span class="dot"></span> Strategy • Performance • Growth</div>
+<h1>Turn Marketing Into a Growth Engine.</h1>
+<p>We help ambitious businesses acquire more customers, build stronger brands, and scale profitably through data-driven digital marketing strategies.</p>
+<div class="actions"><a class="btn primary" href="#contact">Start Growing →</a><a class="btn secondary" href="#services">Explore Our Services</a></div>
+<div class="trust">Performance marketing · SEO · Creative · Analytics · CRO</div>
+</div></section>
+
+<section class="metrics"><div class="wrap grid">
+<div class="metric reveal"><strong>+185%</strong><span>Qualified Leads</span></div>
+<div class="metric reveal"><strong>-32%</strong><span>Customer Acquisition Cost</span></div>
+<div class="metric reveal"><strong>3.8X</strong><span>ROAS</span></div>
+</div></section>
+
+<section id="solutions"><div class="wrap problem"><div class="section-head reveal"><div class="kicker">The Problem</div><h2>Marketing shouldn't feel like a guessing game.</h2><p>Growth gets harder when channels are fragmented, acquisition costs rise, and no one can clearly connect marketing activity to business outcomes.</p><div class="solution">We connect strategy, creativity, technology, and performance to create marketing systems built for sustainable growth.</div></div><ul class="reveal"><li>Inconsistent lead generation</li><li>Rising acquisition costs</li><li>Poor conversion rates</li><li>Low-quality traffic</li><li>Weak brand positioning</li><li>Unclear marketing ROI</li><li>Fragmented channels</li><li>Difficulty scaling profitably</li></ul></div></section>
+
+<section id="services"><div class="wrap"><div class="section-head reveal"><div class="kicker">What We Do</div><h2>Everything your growth engine needs.</h2><p>Integrated capabilities built around acquisition, conversion, brand strength, and measurable performance.</p></div>
+<div class="grid services">
+<div class="card reveal"><div class="icon">01</div><h3>Performance Marketing</h3><p>Generate qualified leads and customers through data-driven paid advertising.</p><div class="tags"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">LinkedIn Ads</span><span class="tag">Retargeting</span><span class="tag">CRO</span></div></div>
+<div class="card reveal"><div class="icon">02</div><h3>Search Engine Optimization</h3><p>Build sustainable organic visibility and attract high-intent customers.</p><div class="tags"><span class="tag">Technical SEO</span><span class="tag">Content</span><span class="tag">Local SEO</span><span class="tag">Keywords</span></div></div>
+<div class="card reveal"><div class="icon">03</div><h3>Social Media Marketing</h3><p>Build a recognizable brand and create meaningful audience engagement.</p><div class="tags"><span class="tag">Social Strategy</span><span class="tag">Content</span><span class="tag">Creative</span><span class="tag">Community</span></div></div>
+<div class="card reveal"><div class="icon">04</div><h3>Content & Creative</h3><p>Create content that captures attention and drives action.</p><div class="tags"><span class="tag">Brand Content</span><span class="tag">Short-form Video</span><span class="tag">Ad Creative</span><span class="tag">Copy</span></div></div>
+<div class="card reveal"><div class="icon">05</div><h3>Website & CRO</h3><p>Turn website visitors into customers through better journeys and conversion systems.</p><div class="tags"><span class="tag">Landing Pages</span><span class="tag">UX</span><span class="tag">A/B Testing</span><span class="tag">Funnels</span></div></div>
+<div class="card reveal"><div class="icon">06</div><h3>Marketing Analytics</h3><p>Turn marketing data into actionable business decisions.</p><div class="tags"><span class="tag">Dashboards</span><span class="tag">Attribution</span><span class="tag">ROI</span><span class="tag">Funnel Analysis</span></div></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="section-head reveal"><div class="kicker">Why Us</div><h2>Built for businesses that want measurable growth.</h2></div><div class="grid features">
+<div class="card reveal"><h3>Performance First</h3><p>Every campaign is connected to measurable business outcomes.</p></div>
+<div class="card reveal"><h3>Data Driven</h3><p>We use data and insights to make smarter marketing decisions.</p></div>
+<div class="card reveal"><h3>Customer Focused</h3><p>We focus on attracting the right customers, not just generating traffic.</p></div>
+<div class="card reveal"><h3>Creative That Converts</h3><p>Strategy and creativity work together to capture attention and drive action.</p></div>
+<div class="card reveal"><h3>Transparent Reporting</h3><p>Clear dashboards help clients understand where their marketing investment goes.</p></div>
+<div class="card reveal"><h3>Built to Scale</h3><p>Strategies evolve as your business grows.</p></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="section-head reveal"><div class="kicker">Our Method</div><h2>The Growth Engine™</h2><p>A five-step system that turns business objectives into measurable marketing momentum.</p></div><div class="framework">
+<div class="step reveal"><b>01 — DISCOVER</b><h3>Understand</h3><p>Business, audience, market, competitors, and opportunities.</p></div>
+<div class="step reveal"><b>02 — STRATEGIZE</b><h3>Plan</h3><p>Build a customized growth and acquisition strategy.</p></div>
+<div class="step reveal"><b>03 — LAUNCH</b><h3>Execute</h3><p>Activate campaigns, content, creative, SEO, and conversion systems.</p></div>
+<div class="step reveal"><b>04 — OPTIMIZE</b><h3>Improve</h3><p>Analyze performance and continuously improve results.</p></div>
+<div class="step reveal"><b>05 — SCALE</b><h3>Accelerate</h3><p>Increase investment in what works and build sustainable growth.</p></div>
+</div></div></section>
+
+<section id="cases"><div class="wrap"><div class="section-head reveal"><div class="kicker">Results</div><h2>We measure success in business outcomes.</h2><p>Illustrative metrics below are placeholders until verified client data is available.</p></div><div class="case">
+<div class="case-main reveal"><div class="kicker">Illustrative Case Study</div><h3>From fragmented acquisition to a measurable growth system.</h3><p><b>Challenge:</b> Rising acquisition costs and inconsistent lead quality.</p><p><b>Strategy:</b> Rebuilt channel mix, landing-page journey, creative testing, retargeting, and reporting.</p><p><b>Execution:</b> Integrated paid media, CRO, analytics, and ongoing optimization.</p><p><b>Key takeaway:</b> Growth compounds when every marketing channel is connected to the same business objective.</p><a class="btn secondary" href="#contact">Discuss Your Growth Challenge</a></div>
+<div class="case-side"><div class="case-stat reveal"><strong>+185%</strong><br><span>Qualified Leads</span></div><div class="case-stat reveal"><strong>-32%</strong><br><span>Acquisition Cost</span></div><div class="case-stat reveal"><strong>+240%</strong><br><span>Organic Traffic</span></div><div class="case-stat reveal"><strong>3.8X</strong><br><span>ROAS</span></div></div></div></div></section>
+
+<section id="industries"><div class="wrap"><div class="section-head reveal"><div class="kicker">Industries</div><h2>Different businesses. One goal: profitable growth.</h2></div><div class="industries reveal"><span class="industry">E-commerce</span><span class="industry">SaaS</span><span class="industry">Technology</span><span class="industry">Finance</span><span class="industry">Professional Services</span><span class="industry">Healthcare</span><span class="industry">Real Estate</span><span class="industry">Education</span><span class="industry">Hospitality</span><span class="industry">Consumer Brands</span><span class="industry">Startups</span><span class="industry">B2B</span></div></div></section>
+
+<section id="about"><div class="wrap about"><div class="section-head reveal"><div class="kicker">About</div><h2>More than an agency. Your growth partner.</h2></div><div class="reveal"><p>We combine performance marketing, brand strategy, creative thinking, technology, and analytics to help ambitious companies compete in an increasingly digital marketplace.</p><p>We don't believe in one-size-fits-all marketing. Every business has a different audience, proposition, market, and growth challenge — so strategies are built around business objectives and continuously optimized around measurable results.</p></div></div></section>
+
+<section><div class="wrap"><div class="section-head reveal"><div class="kicker">Technology & Analytics</div><h2>Built around a modern marketing stack.</h2><p>Tools and systems are selected around the business problem — not because a logo looks impressive.</p></div><div class="tools reveal"><div class="tool">Google Analytics</div><div class="tool">Google Ads</div><div class="tool">Meta Ads</div><div class="tool">LinkedIn</div><div class="tool">Search Console</div><div class="tool">CRM Platforms</div><div class="tool">Automation</div><div class="tool">Business Intelligence</div><div class="tool">Conversion Tracking</div><div class="tool">AI Marketing Tools</div></div></div></section>
+
+<section><div class="wrap"><div class="section-head reveal"><div class="kicker">Client Voice</div><h2>Built on outcomes, not buzzwords.</h2></div><div class="grid">
+<div class="quote reveal"><p>“They didn't just improve our marketing. They helped us understand exactly what was driving growth.”</p><small>— Founder, Growth Company · Placeholder testimonial</small></div>
+<div class="quote reveal"><p>“The biggest difference was the clarity: strategy, execution, and reporting finally worked as one system.”</p><small>— Marketing Leader · Placeholder testimonial</small></div>
+<div class="quote reveal"><p>“We stopped chasing vanity metrics and started optimizing for business outcomes.”</p><small>— Founder, Consumer Brand · Placeholder testimonial</small></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="cta reveal"><h2>Ready to Build Your Next Growth Engine?</h2><p>Let's identify your biggest growth opportunities and build a marketing strategy designed to turn them into measurable results.</p><a class="btn primary" href="#contact">Book a Growth Consultation →</a></div></div></section>
+
+<section id="contact"><div class="wrap"><div class="section-head reveal"><div class="kicker">Start a Conversation</div><h2>Tell us where you want to grow.</h2><p>No pressure. No generic pitch. Just a conversation about your growth opportunities.</p></div>
+<form onsubmit="submitForm(event)" class="reveal">
+<input required placeholder="Name"><input required placeholder="Company">
+<input required type="email" placeholder="Email"><input placeholder="Phone">
+<input placeholder="Website"><input placeholder="Industry">
+<select><option value="">Monthly Marketing Budget</option><option>Under ₹50K</option><option>₹50K–₹2L</option><option>₹2L–₹5L</option><option>₹5L+</option><option>Not sure yet</option></select>
+<select><option value="">Preferred Contact Method</option><option>Email</option><option>Phone</option><option>WhatsApp</option></select>
+<textarea class="full" placeholder="What are you looking to achieve?"></textarea>
+<button class="btn primary full" type="submit">Start the Conversation →</button>
+</form></div></section>
 </main>
+
+<footer><div class="wrap"><div class="footer-grid">
+<div><div class="logo">GROWTH<span>ENGINE</span></div><p>Performance-driven digital marketing built around measurable growth.</p></div>
+<div><h4>Services</h4><a href="#services">Performance Marketing</a><a href="#services">SEO</a><a href="#services">Social Media</a><a href="#services">Content & Creative</a><a href="#services">CRO</a></div>
+<div><h4>Company</h4><a href="#about">About</a><a href="#cases">Case Studies</a><a href="#industries">Industries</a><a href="#contact">Contact</a></div>
+<div><h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a><a href="#">Cookie Policy</a></div>
+</div><div class="copyright"><span>© 2026 Growth Engine. All rights reserved.</span><span>Strategy. Performance. Growth.</span></div></div></footer>
+
 <script>
-const screens=[...document.querySelectorAll('.screen')];
-function go(n){screens.forEach(s=>s.classList.remove('active'));document.getElementById('s'+n).classList.add('active')}
-function choose(name,emoji){localStorage.setItem('sorryChoice',name);document.getElementById('chosenEmoji').textContent=emoji;document.getElementById('chosenText').innerHTML=`You picked <strong>${emoji} ${name}</strong> — officially added to our peace treaty.`;go(3);celebrate()}
-function restart(){localStorage.removeItem('sorryChoice');go(1)}
-const no=document.getElementById('noBtn');
-const apologyMessages=['I’m sorry 🥺','Please forgive me ❤️','I really mean it 💕','One more chance? 🥹','I’ll make it up to you 🌸','Okay okay… I’m sorry 😭','My bad, my love ❤️','Can we make peace? 🫶','I promise I’ll do better 💗','Sending you a giant sorry 🥺','No more being silly, promise! 💞','You’re too precious to stay mad at me ❤️','I owe you a proper apology 🌷','I’m genuinely sorry 💕','Truce? 🕊️','Pretty please? 🥹❤️','I was wrong. I’m sorry.','Come on… tiny smile? 😊'];
-let noAttempts=0;
-function showApologies(){
-  noAttempts++;
-  const count=Math.min(24,10+noAttempts*2);
-  for(let i=0;i<count;i++){
-    const m=document.createElement('div');
-    m.className='sorry-pop';
-    m.textContent=apologyMessages[Math.floor(Math.random()*apologyMessages.length)];
-    m.style.left=(5+Math.random()*90)+'vw';
-    m.style.top=(12+Math.random()*72)+'vh';
-    m.style.setProperty('--dx',((Math.random()-.5)*90)+'px');
-    m.style.setProperty('--dy',(-35-Math.random()*90)+'px');
-    m.style.setProperty('--rot',((Math.random()-.5)*18)+'deg');
-    document.getElementById('sorryRain').appendChild(m);
-    setTimeout(()=>m.remove(),1900);
-  }
-  no.classList.remove('wiggle');
-  void no.offsetWidth;
-  no.classList.add('wiggle');
-  celebrate();
-}
-function moveNo(e){
-  if(e)e.preventDefault();
-  showApologies();
-  const pad=18,w=no.offsetWidth,h=no.offsetHeight;
-  no.style.position='fixed';
-  no.style.transform='none';
-  no.style.left=(pad+Math.random()*Math.max(1,innerWidth-w-pad*2))+'px';
-  no.style.top=(Math.min(innerHeight-h-pad,Math.max(pad,innerHeight*.45+((Math.random()-.5)*180))))+'px';
-}
-['pointerenter','pointerdown','touchstart','click'].forEach(ev=>no.addEventListener(ev,moveNo,{passive:false}));
-function celebrate(){for(let i=0;i<26;i++){const s=document.createElement('span');s.className='spark';s.textContent=['❤️','✨','💗','🌸'][i%4];s.style.left='50vw';s.style.top='48vh';s.style.setProperty('--x',((Math.random()-.5)*380)+'px');s.style.setProperty('--y',((Math.random()-.7)*420)+'px');document.body.appendChild(s);setTimeout(()=>s.remove(),1400)}}
-setInterval(()=>{const h=document.createElement('span');h.className='float';h.textContent=Math.random()>.5?'♡':'✦';h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*18)+'px';h.style.opacity=.35+Math.random()*.35;document.body.appendChild(h);setTimeout(()=>h.remove(),5200)},900);
+function toggleMenu(){const l=document.querySelector('.links');l.style.display=l.style.display==='flex'?'none':'flex';l.style.position='absolute';l.style.top='76px';l.style.left='0';l.style.right='0';l.style.padding='20px';l.style.background='#0b0c0f';l.style.flexDirection='column';l.style.alignItems='stretch'}
+function submitForm(e){e.preventDefault();alert('Thanks — your growth conversation request has been captured in this demo. Connect the form to your CRM/email before launch.')}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
 </script>
 </body>
 </html>
